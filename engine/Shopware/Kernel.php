@@ -25,6 +25,8 @@
 namespace Shopware;
 
 use Shopware\Bundle\AttributeBundle\DependencyInjection\Compiler\SearchRepositoryCompilerPass;
+use Shopware\Bundle\CartBundle\DependencyInjection\CompilerPass\CartProcessorCompilerPass;
+use Shopware\Bundle\CartBundle\DependencyInjection\CompilerPass\TaxRuleCalculatorCompilerPass;
 use Shopware\Bundle\ControllerBundle\DependencyInjection\Compiler\RegisterControllerCompilerPass;
 use Shopware\Bundle\ESIndexingBundle\DependencyInjection\CompilerPass\SettingsCompilerPass;
 use Shopware\Bundle\ESIndexingBundle\DependencyInjection\CompilerPass\SynchronizerCompilerPass;
@@ -592,6 +594,7 @@ class Kernel implements HttpKernelInterface
         $loader->load('FormBundle/services.xml');
         $loader->load('AccountBundle/services.xml');
         $loader->load('AttributeBundle/services.xml');
+        $loader->load('CartBundle/services.xml');
 
         if ($this->isElasticSearchEnabled()) {
             $loader->load('SearchBundleES/services.xml');
@@ -617,6 +620,8 @@ class Kernel implements HttpKernelInterface
         $container->addCompilerPass(new AddConstraintValidatorsPass());
         $container->addCompilerPass(new SearchRepositoryCompilerPass());
         $container->addCompilerPass(new AddConsoleCommandPass());
+        $container->addCompilerPass(new CartProcessorCompilerPass());
+        $container->addCompilerPass(new TaxRuleCalculatorCompilerPass());
 
         if ($this->isElasticSearchEnabled()) {
             $container->addCompilerPass(new SearchHandlerCompilerPass());

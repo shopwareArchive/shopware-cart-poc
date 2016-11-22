@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\Tests\Functional\Bundle\StoreFrontBundle;
+namespace Shopware\tests\Functional\Bundle\StoreFrontBundle;
 
 use Shopware\Models;
 use Shopware\Bundle\StoreFrontBundle\Struct;
@@ -13,12 +13,11 @@ class Converter
      */
     public function convertTax(Models\Tax\Tax $tax)
     {
-        $struct = new Struct\Tax();
-        $struct->setId($tax->getId());
-        $struct->setTax($tax->getTax());
-        $struct->setName($tax->getName());
-
-        return $struct;
+        return new Struct\Tax(
+            $tax->getId(),
+            $tax->getTax(),
+            $tax->getName()
+        );
     }
 
     /**

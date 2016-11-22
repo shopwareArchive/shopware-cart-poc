@@ -34,7 +34,7 @@ use Shopware\Bundle\StoreFrontBundle\Struct\Product\PriceGroup;
  * @package   Shopware\Bundle\StoreFrontBundle\Struct
  * @copyright Copyright (c) shopware AG (http://www.shopware.de)
  */
-interface ShopContextInterface
+interface ShopContextInterface extends ExtendableInterface
 {
     /**
      * Contains the current shop object of the store front.

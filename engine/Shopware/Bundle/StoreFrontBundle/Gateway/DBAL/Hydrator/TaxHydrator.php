@@ -42,13 +42,11 @@ class TaxHydrator extends Hydrator
      */
     public function hydrate(array $data)
     {
-        $tax = new Struct\Tax();
-
-        $tax->setId((int) $data['__tax_id']);
-        $tax->setName($data['__tax_description']);
-        $tax->setTax((float) $data['__tax_tax']);
-
-        return $tax;
+        return new Struct\Tax(
+            (int) $data['__tax_id'],
+            $data['__tax_description'],
+            (float) $data['__tax_tax']
+        );
     }
 
     /**
@@ -60,12 +58,10 @@ class TaxHydrator extends Hydrator
      */
     public function hydrateRule(array $data)
     {
-        $tax = new Struct\Tax();
-
-        $tax->setId((int) $data['__taxRule_groupID']);
-        $tax->setName($data['__taxRule_name']);
-        $tax->setTax((float) $data['__taxRule_tax']);
-
-        return $tax;
+        return new Struct\Tax(
+            (int) $data['__taxRule_groupID'],
+            $data['__taxRule_name'],
+            (float) $data['__taxRule_tax']
+        );
     }
 }
