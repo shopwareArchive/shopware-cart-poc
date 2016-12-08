@@ -32,7 +32,7 @@ use Shopware\Bundle\CartBundle\Domain\Cart\CartPersisterInterface;
 use Shopware\Bundle\CartBundle\Domain\LineItem\LineItemInterface;
 use Shopware\Bundle\CartBundle\Domain\LineItem\Stackable;
 
-class StoreFrontFacade
+class StoreFrontCartService
 {
     const CART_NAME = 'shopware';
 

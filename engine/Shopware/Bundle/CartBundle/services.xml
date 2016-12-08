@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="shopware_cart.store_front_facade" class="Shopware\Bundle\CartBundle\Infrastructure\StoreFrontFacade">
+        <service id="shopware_cart.store_front_cart_service" class="Shopware\Bundle\CartBundle\Infrastructure\StoreFrontCartService">
             <argument type="service" id="shopware_cart.cart_calculator" />
             <argument type="service" id="shopware_cart.cart_persister" />
             <argument type="service" id="shopware_cart.cart_context_service" />
