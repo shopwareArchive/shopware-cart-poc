@@ -22,11 +22,11 @@
  * our trademarks remain entirely with us.
  */
 
-namespace Shopware\Bundle\CartBundle\Domain\Price;
+namespace Shopware\Bundle\CartBundle\Domain\LineItem;
 
-use Shopware\Bundle\CartBundle\Domain\LineItem\CalculatedLineItemInterface;
+use Shopware\Bundle\CartBundle\Domain\Price\Price;
 
-class CalculatedDiscount implements CalculatedLineItemInterface
+class CalculatedLineItem implements CalculatedLineItemInterface
 {
     /**
      * @var string
